@@ -59,9 +59,11 @@ rpm-ostree install \
     firewall-config \
     fish \
     fish \
+    flatpak \
     fuse-sshfs \
     gcc \
     genisoimage \
+    git \
     glow \
     glx-utils \
     google-droid-sans-mono-fonts \
