@@ -36,7 +36,6 @@ rpm-ostree install tuned \
     flatpak \
     git \
     libappindicator \
-    mullvad-vpn \
     podman-compose \
     podman-tui \
     podmansh
@@ -48,5 +47,4 @@ ln -s /usr/lib/systemd/system/cosmic-greeter.service /etc/systemd/system/display
 # Example for enabling a System Unit File
 systemctl enable podman.socket
 systemctl enable docker.socket
-systemctl enable mullvad-daemon
 systemctl enable cosmic-greeter.service
