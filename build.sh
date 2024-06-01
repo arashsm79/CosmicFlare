@@ -20,13 +20,8 @@ wget https://repository.mullvad.net/rpm/stable/mullvad.repo -O /etc/yum.repos.d/
 rpm-ostree install cosmic-desktop
 
 # Install extras
-rpm-ostree install \
-    # Cosmic Dependencies
-    tuned \
+rpm-ostree install tuned \
     gnome-keyring \
-    # CLI Tools
-    ## CLI tools that are already in the base image: https://github.com/ublue-os/main/blob/main/packages.json
-    ## Some of the following tools are taken from Bluefin: https://github.com/ublue-os/bluefin/tree/main/packages.json
     adobe-source-code-pro-fonts \
     alacritty \
     android-tools \
