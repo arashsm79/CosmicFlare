@@ -33,7 +33,6 @@ rpm-ostree install tuned \
     cascadia-code-fonts \
     cifs-utils \
     cmatrix \
-    codium \
     containerd.io \
     cryptsetup \
     dbus-x11 \
