@@ -71,7 +71,6 @@ rpm-ostree install tuned \
     libappindicator \
     libimobiledevice \
     libnotify \
-    libvirt \
     libxcrypt-compat \
     lm_sensors \
     lsof \
