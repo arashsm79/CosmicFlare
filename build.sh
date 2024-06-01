@@ -74,7 +74,6 @@ rpm-ostree install \
     input-remapper \
     iotop \
     jetbrains-mono-fonts-all \
-    kcli \
     libappindicator \
     libimobiledevice \
     libnotify \
@@ -126,7 +125,6 @@ rpm-ostree install \
     tmux \
     traceroute \
     tree \
-    ubuntu-family-fonts \
     udica \
     unrar \
     unzip \
