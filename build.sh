@@ -21,7 +21,25 @@ rpm-ostree install cosmic-desktop
 
 # Install extras
 rpm-ostree install tuned \
-    gnome-keyring
+    gnome-keyring \
+    alacritty \
+    bat \
+    cifs-utils \
+    cmatrix \
+    codium \
+    containerd.io \
+    docker-buildx-plugin \
+    docker-ce \
+    docker-ce-cli \
+    docker-compose-plugin \
+    fish \
+    flatpak \
+    git \
+    libappindicator \
+    mullvad-vpn \
+    podman-compose \
+    podman-tui \
+    podmansh
     
 # Set up display manager
 rm -f /etc/systemd/system/display-manager.service
