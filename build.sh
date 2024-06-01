@@ -38,7 +38,6 @@ rpm-ostree install tuned \
     cryptsetup \
     dbus-x11 \
     desktop-file-utils \
-    devpod \
     dmidecode \
     docker-buildx-plugin \
     docker-ce \
@@ -59,11 +58,9 @@ rpm-ostree install tuned \
     gcc \
     genisoimage \
     git \
-    glow \
     glx-utils \
     google-droid-sans-mono-fonts \
     google-go-mono-fonts \
-    gum \
     gwe \
     hplip \
     ibm-plex-mono-fonts \
@@ -82,7 +79,6 @@ rpm-ostree install tuned \
     mesa-libGLU \
     mozilla-fira-mono-fonts \
     mullvad-vpn \
-    nerd-fonts \
     nethogs \
     p7zip \
     p7zip-plugins \
@@ -133,8 +129,7 @@ rpm-ostree install tuned \
     vulkan-tools \
     wireguard-tools \
     wl-clipboard \
-    xprop \
-    zs
+    xprop
     
 # Set up display manager
 rm -f /etc/systemd/system/display-manager.service
