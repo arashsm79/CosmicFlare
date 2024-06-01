@@ -147,3 +147,4 @@ ln -s /usr/lib/systemd/system/cosmic-greeter.service /etc/systemd/system/display
 systemctl enable podman.socket
 systemctl enable docker.socket
 systemctl enable mullvad-daemon
+systemctl enable cosmic-greeter.service
