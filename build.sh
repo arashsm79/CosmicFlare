@@ -6,25 +6,146 @@ RELEASE="$(rpm -E %fedora)"
 
 
 ### Install packages
-
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
-
-# this installs a package from fedora repos
-# Setup Copr repo
+# Setup repos
+## Cosmic Desktop
 wget https://copr.fedorainfracloud.org/coprs/ryanabx/cosmic-epoch/repo/fedora-40/ryanabx-cosmic-epoch-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_ryanabx-cosmic.repo
+## VSCodium
+printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=download.vscodium.com\nbaseurl=https://download.vscodium.com/rpms/\nenabled=1\ngpgcheck=1\ngpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg" | tee -a /etc/yum.repos.d/vscodium.repo
+## Docker
+wget https://download.docker.com/linux/fedora/docker-ce.repo -O /etc/yum.repos.d/docker-ce.repo
+## Mullvad
+wget https://repository.mullvad.net/rpm/stable/mullvad.repo -O /etc/yum.repos.d/mullvad.repo
 
 # Install cosmic desktop environment
 rpm-ostree install cosmic-desktop
 
-# Install extras (currently just a power manager and a libsecret manager)
-rpm-ostree install tuned gnome-keyring
-
+# Install extras
+rpm-ostree install \
+    # Cosmic Dependencies
+    tuned \
+    gnome-keyring \
+    # CLI Tools
+    ## CLI tools that are already in the base image: https://github.com/ublue-os/main/blob/main/packages.json
+    ## Some of the following tools are taken from Bluefin: https://github.com/ublue-os/bluefin/tree/main/packages.json
+    adobe-source-code-pro-fonts \
+    alacritty \
+    android-tools \
+    autossh \
+    bash-color-prompt \
+    bat \
+    bcache-tools \
+    btrfs-progs \
+    cascadia-code-fonts \
+    cifs-utils \
+    cmatrix \
+    codium \
+    containerd.io \
+    cryptsetup \
+    dbus-x11 \
+    desktop-file-utils \
+    devpod \
+    dmidecode \
+    docker-buildx-plugin \
+    docker-ce \
+    docker-ce-cli \
+    docker-compose-plugin \
+    dua-cli \
+    edk2-ovmf \
+    evtest \
+    evtest \
+    eza \
+    fastfetch \
+    fd-find \
+    firewall-config \
+    fish \
+    fish \
+    fuse-sshfs \
+    gcc \
+    genisoimage \
+    glow \
+    glx-utils \
+    google-droid-sans-mono-fonts \
+    google-go-mono-fonts \
+    gum \
+    gwe \
+    hplip \
+    ibm-plex-mono-fonts \
+    ifuse \
+    input-remapper \
+    iotop \
+    jetbrains-mono-fonts-all \
+    kcli \
+    libappindicator \
+    libimobiledevice \
+    libnotify \
+    libvirt \
+    libxcrypt-compat \
+    lm_sensors \
+    lsof \
+    make \
+    mesa-libGLU \
+    mozilla-fira-mono-fonts \
+    mullvad-vpn \
+    nerd-fonts \
+    nethogs \
+    p7zip \
+    p7zip-plugins \
+    pciutils \
+    playerctl \
+    podman-compose \
+    podman-tui \
+    podmansh \
+    powerline-fonts \
+    powertop \
+    printer-driver-brlaser \
+    procs \
+    psmisc \
+    pulseaudio-utils \
+    qemu \
+    qemu-char-spice \
+    qemu-device-display-virtio-gpu \
+    qemu-device-display-virtio-vga \
+    qemu-device-usb-redirect \
+    qemu-img \
+    qemu-system-x86-core \
+    qemu-user-binfmt \
+    qemu-user-static \
+    rclone \
+    restic \
+    ripgrep \
+    rocm-hip \
+    rocm-opencl \
+    samba \
+    samba-dcerpc \
+    samba-ldb-ldap-modules \
+    samba-winbind-clients \
+    samba-winbind-modules \
+    sd \
+    solaar \
+    stress-ng \
+    tmux \
+    traceroute \
+    tree \
+    ubuntu-family-fonts \
+    udica \
+    unrar \
+    unzip \
+    usbmuxd \
+    v4l-utils \
+    vazirmatn-fonts \
+    virt-manager \
+    virt-viewer \
+    vulkan-tools \
+    wireguard-tools \
+    wl-clipboard \
+    xprop \
+    zs
+    
 # Set up display manager
 rm -f /etc/systemd/system/display-manager.service
 ln -s /usr/lib/systemd/system/cosmic-greeter.service /etc/systemd/system/display-manager.service
 
 # Example for enabling a System Unit File
 systemctl enable podman.socket
+systemctl enable docker.socket
+systemctl enable mullvad-daemon
