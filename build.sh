@@ -93,15 +93,6 @@ rpm-ostree install tuned \
     procs \
     psmisc \
     pulseaudio-utils \
-    qemu \
-    qemu-char-spice \
-    qemu-device-display-virtio-gpu \
-    qemu-device-display-virtio-vga \
-    qemu-device-usb-redirect \
-    qemu-img \
-    qemu-system-x86-core \
-    qemu-user-binfmt \
-    qemu-user-static \
     rclone \
     restic \
     ripgrep \
@@ -124,8 +115,6 @@ rpm-ostree install tuned \
     usbmuxd \
     v4l-utils \
     vazirmatn-fonts \
-    virt-manager \
-    virt-viewer \
     vulkan-tools \
     wireguard-tools \
     wl-clipboard \
