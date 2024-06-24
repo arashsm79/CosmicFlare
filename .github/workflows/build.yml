@@ -150,7 +150,7 @@ jobs:
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
 
       - name: Build Container Installer
-        uses: JasonN3/build-container-installer@v1.2.0
+        uses: JasonN3/build-container-installer@v1.2.1
 
       # This example is for uploading your ISO as a Github artifact. You can do something similar using any cloud storage, so long as you copy the output
       - name: Upload ISO as artifact
